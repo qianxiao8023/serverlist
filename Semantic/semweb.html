@@ -1,0 +1,97 @@
+<html>
+	<head>
+        <meta charset="utf-8">
+        <title>A web test</title>
+		<link rel="stylesheet" type="text/css" href="semantic.min.css">
+		<script src="jquery-2.0.2.min.js"></script>
+        <script src="semantic.min.js"></script>
+	</head>
+	<body>
+
+        <div class="ui thin sidebar left inverted vertical menu">
+            <div class="header item">
+            </div>
+            <div class="item">option1</div>
+            <div class="item">option3</div>
+            </div>
+        </div>
+        <div class="pusher">
+
+            <div class="ui menu">
+            <div class="header item" id="menu">
+                Menu
+                <i class="content icon"></i>
+            </div >
+            <div class="item">
+                About us
+            </div>
+            <div class="item">
+                contact us
+            </div>
+        </div>
+
+            <div class="ui container">
+                <div class="ui divided items">
+                    <div class="item">
+                        <div class="content">
+                            <a class="header">
+                                The title
+                            </a>
+                            <div class="meta">
+                                <span class="cinema">
+                                    stst
+                                </span>
+                            </div>
+                            <div class="description">
+                                <p>
+                                hello moto
+                                </p>
+                            </div>
+                            <div class="extra">
+                                <div class="ui label">
+                                    tag
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="content">
+                            <a class="header">
+                                The title2
+                            </a>
+                            <div class="meta">
+                                <span class="cinema">
+                                    stst2
+                                </span>
+                            </div>
+                            <div class="description">
+                                <p>
+                                hello moto2
+                                </p>
+                            </div>
+                            <div class="extra">
+                                <div class="ui label">
+                                    tag
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui pagination menu">
+                    <a class="active item"> 1 </a>
+                    <div class="disabled item">
+                        ...
+                    </div>
+                    <a class="item"> 10 </a>
+                </div>
+
+            </div>
+        </div>
+        <script>
+            $('#menu').click(function () {
+                $('.ui.sidebar').sidebar('toggle');
+            });
+        </script>
+    </body>
+</html>

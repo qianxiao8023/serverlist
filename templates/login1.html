@@ -1,0 +1,70 @@
+{% load static %}
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>login</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/semantic.min.css' %}">
+    <script src="{% static 'js/jquery-2.0.2.min.js' %}"></script>
+    <script src="{% static 'js/semantic.js' %}"></script>
+    <script src="{% static 'js/tablesort.js' %}"></script>
+
+</head>
+<body>
+<form id="form1" runat="server">
+    <div class="ui form segment">
+        <div class="ui one column relaxed grid">
+            <div class="column">
+                <div class="ui fluid form segment">
+                    <h3 class="ui header">测试系统登录界面</h3>
+                    <div class="field">
+                        <label>用户名</label>
+                        <input type="text" name="userName" id="userName" placeholder="用户名"/>
+                    </div>
+                    <div class="field">
+                        <label>密码</label>
+                        <input type="password" name="userPass" id="userPass"/>
+                    </div>
+                    <div class="ui blue submit button" onclick="login()">登录</div>
+                </div>
+            </div>
+        </div>
+        <div class="ui error message">
+
+        </div>
+    </div>
+</form>
+
+<script>
+        //登录验证
+        function login()
+        {
+
+            $(".ui.form").form(
+                {
+                    username: {
+                        identifier: 'userName',
+                        rules: [
+                            {
+                                type: 'empty',
+                                prompt: '用户名不能为空'
+                            }]
+                    },
+                    userpass: {
+                        identifier: 'userPass',
+                        rules: [
+                            {
+                                type: 'empty',
+                                prompt: '用户密码不能为空'
+                            }]
+                    }
+                }, {
+                    onSuccess: function () {
+                        alert("成功了啊");
+                    }
+                }
+                );
+        }
+    </script>
+
+</body>
+</html>

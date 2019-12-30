@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+{#    <script src="{% static 'js/jquery-2.0.2.min.js' %}"></script>#}
+{#    <link rel="stylesheet" type="text/css" href="{%  static 'css/semantic.min.css' %}">#}
+{#    <script src="{% static 'js/semantic.min.js' %}"></script>#}
+</head>
+<body>
+    <h1>信息展示</h1>
+    <table>
+    <tr>
+        <th>用户名</th>
+        <th>密码</th>
+    </tr>
+    {% for line in people_list %}
+    <tr>
+        <td>{{line.id}}</td>
+        <td>{{line.name}}</td>
+    </tr>
+    {% endfor %}
+    </table>
+</body>
+</html>

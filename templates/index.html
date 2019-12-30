@@ -1,0 +1,112 @@
+{% load static %}
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>A web test</title>
+    <link rel="stylesheet" type="text/css" href="{%  static 'css/semantic.min.css' %}">
+    <script src="{% static 'js/jquery-2.0.2.min.js' %}"></script>
+    <script src="{% static 'js/semantic.js' %}"></script>
+    <script src="{% static 'js/tablesort.js' %}"></script>
+
+</head>
+<body>
+
+<div class="ui sidebar inverted vertical thin menu">{# 边栏 #}
+    <div class="header item">
+        <img src="../static/img/yunzx_icon.png">
+    </div>
+{#    <div class="item">menu1</div>#}
+</div>
+
+<div class="pusher">{# 边栏推动 #}
+
+    <div class="ui menu">{# 顶部菜单 #}
+        <div class="header item" id="top_menu">
+            Menu
+            <i class="content icon"></i>
+        </div>
+        <div class="item">
+            服务器列表
+        </div>
+    </div>
+
+    <div class="ui container">{# 容器 #}
+
+    <table class="ui sortable celled table" id="table">{# 可排序表格 #}
+    <thead>
+    <tr>
+        <th>服务器IP</th>
+        <th>服务器所在地</th>
+        <th>创建时间</th>
+        <th>更新时间</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in people_list %}
+        <tr>
+            <td>{{ item.ip_adress }}</td>
+            <td>{{ item.server_location }}</td>
+            <td>{{ item.create_time |date:'Y-m-d H:i:s'}}</td>
+            <td>{{ item.update_time |date:'Y-m-d H:i:s'}}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    <tfoot class="full-width">
+    <tr>
+      <th></th>
+      <th colspan="4">
+        <div class="ui right floated small primary labeled icon button" id="add_server">
+            <i class="plus square icon"></i>
+            添加服务器
+        </div>
+      </th>
+    </tr>
+  </tfoot>
+</table>
+
+    <div class="ui pagination menu">{# 分页 #}
+  <a class="active item" href="#"> < </a>
+  <div class="disabled item">
+    ...
+  </div>
+  <a class="active item" href="#"> > </a>
+    </div>
+
+    <form class="ui form" method="post">{# 添加表格 #}
+        {% csrf_token %}
+        <div class="field" id="add_server">
+            <label>服务器IP</label>
+                <input type="text" name="ip_address" placeholder="192.168.1.1">
+        </div>
+        <div class="field">
+            <label>服务器所在地</label>
+            <input type="text" name="server_location" placeholder="江苏省无锡市无锡电信国际数据中心">
+        </div>
+
+        <button class="ui button" type="submit">提交</button>
+    </form>
+
+    </div>
+
+</div>
+
+<script>{# 排序js #}
+    $('#table').tablesort();
+</script>
+
+<script>{# 边栏js #}
+    $('#top_menu').click(function () {
+        $('.ui.sidebar').sidebar('toggle');
+    });
+</script>
+
+<script>
+    $('#add_server').click(function () {
+        $('.ui.form').sidebar('toggle')
+
+    })
+
+</script>
+
+</body>
+</html>
